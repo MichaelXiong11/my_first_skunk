@@ -54,8 +54,8 @@ public class SkunkDomain
 			ui.println("Next player is " + playerNames[activePlayerIndex] + ".");
 			activePlayer.setTurnScore(0);
 			
-			String wantsToRollStr = ui.promptReadAndReturn("Roll? y or n");
-			boolean wantsToRoll = 'y' == wantsToRollStr.toLowerCase().charAt(0);
+			
+			boolean wantsToRoll = getRollChoice(); 
 			
 			while (wantsToRoll)
 			{
@@ -236,6 +236,12 @@ public class SkunkDomain
 
 		ui.println("-----------------------");
 		return true;
+	}
+
+	//Manual refactor - creating method
+	private boolean getRollChoice() {
+		String wantsToRollStr = ui.promptReadAndReturn("Roll? y or n");
+		return 'y' == wantsToRollStr.toLowerCase().charAt(0);
 	}
 
 }
